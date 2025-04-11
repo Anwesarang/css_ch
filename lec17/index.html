@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid black;
+        }
+        .container1{
+            background-color: blueviolet;
+            border: 1px rgb(9, 9, 9) solid;
+            height: 600px;
+        }
+        .container2{
+            background-color: cadetblue;
+            border: 1px rgb(127, 18, 18) solid;
+            margin: 10px;
+            height: 600px;
+        }
+        img{
+            margin: 10px;
+        }
+        .img1{
+            position: relative;
+            top: 100px;
+        }
+        .img2{
+            position: absolute;
+            top: 200px;
+        }
+        .img3{
+            position: sticky;
+            top: 100px;
+        }
+        .img4{
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <img src="bts1.jpg" alt="bts 1" 
+        height="300px" width="300px"
+        class="img1">
+        <img src="bts2.jpeg" alt="bts 2" 
+        height="300px" width="300px"
+        class="img2">
+        <img src="bts3.jpeg" alt="bts 3" 
+        height="300px" width="300px"
+        class="img3">
+        <img src="bts4.jpeg" alt="bts 4" 
+        height="300px" width="300px"
+        class="img4">
+    </div>
+    <div class="container2"></div>
+</body>
+</html>
