@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Fundamentals Demo</title>
+    <!-- Link to Tailwind CSS for basic layout utilities -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global styles for Inter font and basic body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light background */
+            color: #334155; /* Dark gray text */
+            line-height: 1.6;
+        }
+
+        /* --- CSS Introduction & Syntax Demonstration --- */
+        /* This section demonstrates basic CSS syntax: selector { property: value; } */
+        .section-container {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 1.5rem; /* p-6 */
+            margin-bottom: 1.5rem; /* mb-6 */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-md */
+        }
+
+        h2 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #1e293b; /* slate-800 */
+            margin-bottom: 1rem; /* mb-4 */
+            border-bottom: 2px solid #cbd5e1; /* slate-300 */
+            padding-bottom: 0.5rem; /* pb-2 */
+        }
+
+        /* --- CSS Selectors Demonstration --- */
+        /* Element Selector: styles all <p> tags within the .selectors-demo div */
+        .selectors-demo p {
+            font-style: italic;
+            color: #475569; /* slate-600 */
+        }
+
+        /* Class Selector: styles elements with the class 'highlight' */
+        .highlight {
+            background-color: #facc15; /* yellow-400 */
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem; /* rounded-md */
+            font-weight: 600;
+        }
+
+        /* ID Selector: styles the specific element with the ID 'unique-element' */
+        #unique-element {
+            font-size: 1.25rem; /* text-xl */
+            color: #ef4444; /* red-500 */
+            text-decoration: underline;
+            margin-top: 1rem;
+        }
+
+        /* --- CSS Comments Demonstration --- */
+        /* This is a multi-line CSS comment.
+           It explains that the following rule targets a specific class
+           to demonstrate text color changes. */
+        .text-color-example {
+            color: #22c55e; /* emerald-500 */
+            font-weight: 600;
+        }
+
+        /* This is a single-line CSS comment for the background color example. */
+        .bg-color-example {
+            background-color: #3b82f6; /* blue-500 */
+            color: #ffffff;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        /* --- CSS Backgrounds Demonstration --- */
+        .backgrounds-demo {
+            background-image: url('https://placehold.co/600x200/a78bfa/ffffff?text=Background+Image'); /* Placeholder image */
+            background-repeat: no-repeat; /* Prevents image from repeating */
+            background-position: center center; /* Centers the image */
+            background-size: cover; /* Covers the entire element area */
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 0.75rem;
+        }
+
+        /* --- CSS Borders Demonstration --- */
+        .border-example-solid {
+            border: 3px solid #f97316; /* orange-500 */
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .border-example-dashed {
+            border: 2px dashed #8b5cf6; /* violet-500 */
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .border-example-rounded {
+            border: 4px double #14b8a6; /* teal-500 */
+            border-radius: 2rem; /* Significantly rounded corners */
+            padding: 1rem;
+        }
+
+        /* --- CSS Margins Demonstration --- */
+        .margin-box-1 {
+            background-color: #fca5a5; /* red-300 */
+            padding: 1rem;
+            margin-bottom: 2rem; /* Large bottom margin */
+            border-radius: 0.5rem;
+        }
+
+        .margin-box-2 {
+            background-color: #a78bfa; /* violet-400 */
+            padding: 1rem;
+            margin-top: 1rem; /* Top margin */
+            margin-left: 3rem; /* Left margin */
+            margin-right: 3rem; /* Right margin */
+            border-radius: 0.5rem;
+        }
+
+        /* --- CSS Padding Demonstration --- */
+        .padding-box {
+            background-color: #93c5fd; /* blue-300 */
+            border: 2px solid #3b82f6; /* blue-500 */
+            padding: 2rem; /* Equal padding on all sides */
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .padding-specific {
+            background-color: #a7f3d0; /* emerald-200 */
+            border: 2px solid #059669; /* emerald-600 */
+            padding-top: 0.5rem;
+            padding-right: 2rem;
+            padding-bottom: 1rem;
+            padding-left: 3rem;
+            border-radius: 0.5rem;
+        }
+
+        /* --- CSS Height/Width Demonstration --- */
+        .fixed-dimensions {
+            background-color: #fcd34d; /* amber-300 */
+            width: 300px; /* Fixed width */
+            height: 100px; /* Fixed height */
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            overflow: hidden; /* Hide content if it overflows */
+        }
+
+        .responsive-width {
+            background-color: #d8b4fe; /* purple-300 */
+            width: 80%; /* Relative width */
+            max-width: 500px; /* Maximum width */
+            height: 80px;
+            margin: 0 auto 1rem auto; /* Center with auto margins */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+        }
+
+        /* --- CSS Box Model Demonstration --- */
+        .box-model-container {
+            background-color: #e0f2fe; /* light blue */
+            padding: 2rem;
+            border: 4px solid #38b2ac; /* teal-400 */
+            margin-top: 2rem;
+            text-align: center;
+            border-radius: 0.75rem;
+        }
+
+        .box-content {
+            background-color: #bfdbfe; /* blue-200 */
+            padding: 1.5rem; /* This is the padding of the content box */
+            border: 2px solid #60a5fa; /* blue-400 */
+            margin: 1rem; /* This is the margin of the content box */
+            display: inline-block; /* To allow margin/padding to be visible */
+            color: #1e40af; /* blue-800 */
+            font-weight: 600;
+            border-radius: 0.5rem;
+        }
+
+        .box-model-label {
+            font-size: 0.875rem; /* text-sm */
+            color: #64748b; /* slate-500 */
+            margin-top: 0.5rem;
+        }
+
+        /* Specific styling for box model visualization */
+        .box-model-visual {
+            background-color: #f0f9ff; /* blue-50 */
+            border: 1px dashed #94a3b8; /* slate-400 */
+            padding: 1rem;
+            margin-top: 1rem;
+            position: relative;
+            border-radius: 0.5rem;
+        }
+
+        .box-model-visual .inner-padding {
+            background-color: #dbeafe; /* blue-100 */
+            border: 1px dashed #60a5fa; /* blue-400 */
+            padding: 1rem;
+            position: relative;
+            border-radius: 0.5rem;
+        }
+
+        .box-model-visual .inner-content {
+            background-color: #bfdbfe; /* blue-200 */
+            border: 1px dashed #3b82f6; /* blue-500 */
+            padding: 1rem;
+            position: relative;
+            border-radius: 0.5rem;
+        }
+
+        .box-model-visual .label {
+            position: absolute;
+            font-size: 0.75rem; /* text-xs */
+            color: #475569; /* slate-600 */
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            border: 1px solid #cbd5e1;
+            z-index: 10;
+        }
+
+        .box-model-visual .label.margin { top: -0.5rem; left: 50%; transform: translateX(-50%); }
+        .box-model-visual .label.border { top: 1.5rem; left: 50%; transform: translateX(-50%); }
+        .box-model-visual .label.padding { top: 3.5rem; left: 50%; transform: translateX(-50%); }
+        .box-model-visual .label.content { top: 5.5rem; left: 50%; transform: translateX(-50%); }
+
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-8 pb-4 border-b-4 border-blue-600">
+            CSS Fundamentals Demo Page
+        </h1>
+
+        <!-- CSS Introduction & Syntax -->
+        <div class="section-container">
+            <h2>1. CSS Introduction & Syntax</h2>
+            <p>
+                CSS (Cascading Style Sheets) is used to style the look and formatting of a document written in HTML.
+                Below is an example of CSS syntax: a selector (`.intro-text`), a property (`color`), and a value (`#0f766e`).
+            </p>
+            <p class="text-color-example">
+                This text demonstrates basic CSS application.
+            </p>
+        </div>
+
+        <!-- CSS Selectors -->
+        <div class="section-container selectors-demo">
+            <h2>2. CSS Selectors</h2>
+            <p>
+                Selectors are used to "find" (or select) the HTML elements you want to style.
+            </p>
+            <p>
+                This paragraph is styled using an <span class="highlight">element selector</span> (all `p` tags within this div).
+            </p>
+            <p class="highlight">
+                This text uses a <span class="highlight">class selector</span> (`.highlight`).
+            </p>
+            <p id="unique-element">
+                This is a <span class="highlight">unique element</span> styled with an <span class="highlight">ID selector</span> (`#unique-element`).
+            </p>
+        </div>
+
+        <!-- CSS Comments -->
+        <div class="section-container">
+            <h2>3. CSS Comments</h2>
+            <p>
+                Comments in CSS are used to explain the code, and to make it more readable. They are ignored by the browser.
+            </p>
+            <p class="text-color-example">
+                This text's color is explained by a multi-line CSS comment in the style block.
+            </p>
+            <p class="bg-color-example">
+                This background color is explained by a single-line CSS comment.
+            </p>
+        </div>
+
+        <!-- CSS Colors -->
+        <div class="section-container">
+            <h2>4. CSS Colors</h2>
+            <p>
+                Colors can be specified using names (e.g., "blue"), RGB values (e.g., `rgb(255, 0, 0)`),
+                hexadecimal values (e.g., `#FF0000`), or HSL values.
+            </p>
+            <p style="color: #008080;">This text is Teal (hex).</p>
+            <p style="background-color: rgb(255, 200, 0); padding: 0.5rem; border-radius: 0.5rem;">This background is Orange (RGB).</p>
+            <p style="color: hsl(120, 100%, 25%);">This text is Dark Green (HSL).</p>
+        </div>
+
+        <!-- CSS Backgrounds -->
+        <div class="section-container">
+            <h2>5. CSS Backgrounds</h2>
+            <p>
+                Background properties allow you to control the background of an element.
+            </p>
+            <div class="backgrounds-demo">
+                Background Image Example
+            </div>
+            <p class="mt-4" style="background-color: #bae6fd; padding: 1rem; border-radius: 0.5rem;">
+                This paragraph has a light blue background color.
+            </p>
+        </div>
+
+        <!-- CSS Borders -->
+        <div class="section-container">
+            <h2>6. CSS Borders</h2>
+            <p>
+                Borders can be customized with style, width, color, and radius.
+            </p>
+            <div class="border-example-solid">
+                This div has a solid orange border.
+            </div>
+            <div class="border-example-dashed">
+                This div has a dashed violet border.
+            </div>
+            <div class="border-example-rounded">
+                This div has a double teal border with very rounded corners.
+            </div>
+        </div>
+
+        <!-- CSS Margins -->
+        <div class="section-container">
+            <h2>7. CSS Margins</h2>
+            <p>
+                Margins create space *outside* an element's border, pushing other elements away.
+            </p>
+            <div class="margin-box-1">
+                This box has a large bottom margin, pushing the next box down.
+            </div>
+            <div class="margin-box-2">
+                This box has top, left, and right margins.
+            </div>
+        </div>
+
+        <!-- CSS Padding -->
+        <div class="section-container">
+            <h2>8. CSS Padding</h2>
+            <p>
+                Padding creates space *inside* an element, between its content and its border.
+            </p>
+            <div class="padding-box">
+                This box has equal padding on all sides. The content is far from the border.
+            </div>
+            <div class="padding-specific">
+                This box has specific padding: top (small), right (medium), bottom (medium), left (large).
+            </div>
+        </div>
+
+        <!-- CSS Height/Width -->
+        <div class="section-container">
+            <h2>9. CSS Height/Width</h2>
+            <p>
+                You can control the dimensions of elements using `height` and `width`.
+            </p>
+            <div class="fixed-dimensions">
+                Fixed 300px width, 100px height.
+            </div>
+            <div class="responsive-width">
+                80% width, max-width 500px (responsive).
+            </div>
+        </div>
+
+        <!-- CSS Box Model -->
+        <div class="section-container box-model-container">
+            <h2>10. CSS Box Model</h2>
+            <p>
+                Every HTML element is considered a "box". The box model describes how these boxes are rendered.
+                It consists of: **Content**, **Padding**, **Border**, and **Margin**.
+            </p>
+
+            <div class="box-model-visual">
+                <span class="label margin">Margin (transparent)</span>
+                <div style="border: 1px dashed #60a5fa; padding: 1rem; background-color: #e0f2fe; position: relative; border-radius: 0.5rem;">
+                    <span class="label border">Border (dashed blue)</span>
+                    <div style="border: 1px dashed #3b82f6; padding: 1rem; background-color: #bfdbfe; position: relative; border-radius: 0.5rem;">
+                        <span class="label padding">Padding (light blue)</span>
+                        <div style="background-color: #93c5fd; padding: 1rem; color: #1e40af; font-weight: 600; position: relative; border-radius: 0.5rem;">
+                            <span class="label content">Content (blue)</span>
+                            This is the actual content area.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="box-model-label mt-4">
+                **Content:** The actual content of the box, where text and images appear.<br>
+                **Padding:** Clears an area around the content. It is transparent.<br>
+                **Border:** A border that goes around the padding and content.<br>
+                **Margin:** Clears an area outside the border. It is transparent.
+            </p>
+        </div>
+
+        <footer class="text-center text-gray-500 text-sm mt-8 pt-4 border-t border-gray-300">
+            &copy; 2025 CSS Fundamentals Demo. All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>
